@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daftar Buah</title>
+</head>
+<body>
+    <h1>Daftar Buah</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Aksi</th>
+        </tr>
+        <tr th:each="buah : ${buahList}">
+            <td th:text="${buah.id}">ID</td>
+            <td th:text="${buah.nama}">Nama Buah</td>
+            <td>
+                <a th:href="@{/buah/edit/{id}(id=${buah.id})}">Edit</a>
+                <a th:href="@{/buah/delete/{id}(id=${buah.id})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a href="/buah/add">Tambah Buah Baru</a>
+</body>
+</html>

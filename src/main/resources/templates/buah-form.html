@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Buah</title>
+</head>
+<body>
+<h1 th:text="${formTitle}">Form Buah</h1>
+<form th:action="@{/buah/save}" th:object="${buah}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <div>
+        <label for="nama">Nama Buah:</label>
+        <input type="text" id="nama" th:field="*{nama}" />
+    </div>
+    <div>
+        <button type="submit">Simpan</button>
+    </div>
+</form>
+<br/>
+<a href="/buah">Kembali ke Daftar Buah</a>
+</body>
+</html>
